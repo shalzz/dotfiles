@@ -16,3 +16,14 @@ if [ -f "${HOME}/google-cloud-sdk/path.bash.inc" ]; then source "${HOME}/google-
 # The next line enables shell command completion for gcloud.
 # shellcheck source=/dev/null
 if [ -f "${HOME}/google-cloud-sdk/completion.bash.inc" ]; then source "${HOME}/google-cloud-sdk/completion.bash.inc"; fi
+
+## Install NPM global packages in HOME dir
+export PATH="$PATH:${HOME}/.npm-global/bin"
+export npm_config_prefix="${HOME}/.npm-global"
+
+## Ruby
+GEM_HOME=$(ruby -e 'print Gem.user_dir')
+export GEM_HOME
+
+## Ccache
+export PATH="/usr/lib/ccache/bin/:$PATH"
