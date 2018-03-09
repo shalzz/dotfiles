@@ -1,6 +1,6 @@
 ## dotfiles
 
-[![Travis CI](https://travis-ci.org/jessfraz/dotfiles.svg?branch=master)](https://travis-ci.org/jessfraz/dotfiles)
+[![Travis CI](https://travis-ci.org/Shalzz/dotfiles.svg?branch=master)](https://travis-ci.org/Shalzz/dotfiles)
 
 **To install:**
 
@@ -40,7 +40,7 @@ export GMAIL_FROM=from-email@you.com
 #### `.vim`
 
 For my `.vimrc` and `.vim` dotfiles see
-[github.com/jessfraz/.vim](https://github.com/jessfraz/.vim).
+[github.com/Shalzz/.vim](https://github.com/Shalzz/.vim).
 
 ### Tests
 
