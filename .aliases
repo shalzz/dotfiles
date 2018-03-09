@@ -95,10 +95,6 @@ alias c="tr -d '\\n' | xclip -selection clipboard"
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
-# Merge PDF files
-# Usage: `mergepdf -o output.pdf input{1,2,3}.pdf`
-alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
-
 # Intuitive map function
 # For example, to list all directories that contain a certain file:
 # find . -name .gitattributes | map dirname
@@ -137,3 +133,15 @@ alias pubkey="more ~/.ssh/id_ed25519.pub | xclip -selection clipboard | echo '=>
 
 # Pipe my private key to my clipboard.
 alias prikey="more ~/.ssh/id_ed25519 | xclip -selection clipboard | echo '=> Private key copied to pasteboard.'"
+
+# Always use nvim
+alias vim="nvim"
+
+# Use python2 for repo
+alias repo="python2 ~/bin/repo"
+
+# Ubuntu like grub config update
+alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
+
+# Satisfy docker
+alias docker="sudo /usr/bin/docker"
