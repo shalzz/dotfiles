@@ -96,6 +96,7 @@ else
 	purple="\\e[1;35m";
 	red="\\e[1;31m";
 	violet="\\e[1;35m";
+	# shellcheck disable=SC2034
 	white="\\e[1;37m";
 	yellow="\\e[1;33m";
 fi;
