@@ -40,3 +40,6 @@ export npm_config_prefix=~/.npm-global
 ## Ruby
 GEM_HOME=$(ruby -e 'print Gem.user_dir')
 export GEM_HOME
+
+## Ccache
+export PATH="/usr/lib/ccache/bin/:$PATH"
