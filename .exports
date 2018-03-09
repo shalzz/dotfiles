@@ -32,3 +32,7 @@ export QT_DEVICE_PIXEL_RATIO=2
 export GO15VENDOREXPERIMENT=1
 
 export DOCKER_CONTENT_TRUST=1
+
+## NPM
+export PATH=~/.npm-global/bin:$PATH
+export npm_config_prefix=~/.npm-global
