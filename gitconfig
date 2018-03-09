@@ -120,22 +120,22 @@
 
 [color "branch"]
 
-	current = yellow reverse
-	local = yellow
+	current = cyan reverse
+	local = cyan
 	remote = green
 
 [color "diff"]
 
-	meta = yellow bold
+	meta = cyan bold
 	frag = magenta bold # line info
 	old = red # deletions
 	new = green # additions
 
 [color "status"]
 
-	added = yellow
+        added = cyan
 	changed = green
-	untracked = cyan
+	untracked = red
 
 [diff]
 

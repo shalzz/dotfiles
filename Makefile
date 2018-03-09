@@ -1,5 +1,5 @@
 .PHONY: all
-all: bin dotfiles etc ## Installs the bin and etc directory files and the dotfiles.
+all: bin dotfiles ## Installs the bin and etc directory files and the dotfiles.
 
 .PHONY: bin
 bin: ## Installs the bin directory files.
@@ -20,8 +20,7 @@ dotfiles: ## Installs the dotfiles.
 	ln -sfn $(CURDIR)/.gnupg/gpg.conf $(HOME)/.gnupg/gpg.conf;
 	ln -sfn $(CURDIR)/.gnupg/gpg-agent.conf $(HOME)/.gnupg/gpg-agent.conf;
 	ln -fn $(CURDIR)/gitignore $(HOME)/.gitignore;
-	cp $(CURDIR)/gitconfig $(HOME)/.gitconfig;
-	git update-index --skip-worktree $(CURDIR)/.gitconfig;
+	cp -f $(CURDIR)/gitconfig $(HOME)/.gitconfig;
 
 .PHONY: etc
 etc: ## Installs the etc directory files.
