@@ -243,7 +243,7 @@ tre() {
 
 # Call from a local repo to open the repository on github/bitbucket in browser
 # Modified version of https://github.com/zeke/ghwd
-repo() {
+repo_open() {
 	# Figure out github repo base URL
 	local base_url
 	base_url=$(git config --get remote.origin.url)
