@@ -101,6 +101,12 @@ if [[ -f "${HOME}/.bash_profile" ]]; then
 	source "${HOME}/.bash_profile"
 fi
 
+# Command-not-found
+source /usr/share/doc/pkgfile/command-not-found.bash
+
+# Preserve current directory in new terminal tabs
+source /etc/profile.d/vte.sh
+
 # use a tty for gpg
 # solves error: "gpg: signing failed: Inappropriate ioctl for device"
 GPG_TTY=$(tty)
