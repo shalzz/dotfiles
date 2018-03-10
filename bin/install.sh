@@ -3,7 +3,7 @@ set -e
 set -o pipefail
 
 # install.sh
-#	This script installs my basic setup for a debian laptop
+#	This script installs my basic setup for an arch linux base laptop
 
 export DEBIAN_FRONTEND=noninteractive
 
@@ -139,60 +139,11 @@ setup_sources() {
 }
 
 base_min() {
-	apt update
-	apt -y upgrade
+        pacman -Syu
 
-	apt install -y \
-		adduser \
-		automake \
-		bash-completion \
-		bc \
-		bzip2 \
-		ca-certificates \
-		coreutils \
-		curl \
-		dnsutils \
-		file \
-		findutils \
-		gcc \
-		git \
-		gnupg \
-		gnupg2 \
-		gnupg-agent \
-		grep \
-		gzip \
-		hostname \
-		indent \
-		iptables \
-		jq \
-		less \
-		libc6-dev \
-		locales \
-		lsof \
-		make \
-		mount \
-		net-tools \
-		neovim \
-		pinentry-curses \
-		rxvt-unicode-256color \
-		scdaemon \
-		silversearcher-ag \
-		ssh \
-		strace \
-		sudo \
-		tar \
-		tree \
-		tzdata \
-		unzip \
-		xclip \
-		xcompmgr \
-		xz-utils \
-		zip \
-		--no-install-recommends
-
-	apt autoremove
-	apt autoclean
-	apt clean
+        pacman --noconfirm -S \
+            base \
+            base-devel
 
 	install_scripts
 }
@@ -414,36 +365,6 @@ install_golang() {
 	)
 }
 
-# install graphics drivers
-install_graphics() {
-	local system=$1
-
-	if [[ -z "$system" ]]; then
-		echo "You need to specify whether it's intel, geforce or optimus"
-		exit 1
-	fi
-
-	local pkgs=( xorg xserver-xorg )
-
-	case $system in
-		"intel")
-			pkgs+=( xserver-xorg-video-intel )
-			;;
-		"geforce")
-			pkgs+=( nvidia-driver )
-			;;
-		"optimus")
-			pkgs+=( nvidia-kernel-dkms bumblebee-nvidia primus )
-			;;
-		*)
-			echo "You need to specify whether it's intel, geforce or optimus"
-			exit 1
-			;;
-	esac
-
-	apt install -y "${pkgs[@]}" --no-install-recommends
-}
-
 # install custom scripts/binaries
 install_scripts() {
 	# install speedtest
@@ -599,77 +520,18 @@ install_vim() {
 	)
 }
 
-install_virtualbox() {
-	# check if we need to install libvpx1
-	PKG_OK=$(dpkg-query -W --showformat='${Status}\n' libvpx1 | grep "install ok installed")
-	echo "Checking for libvpx1: $PKG_OK"
-	if [ "" == "$PKG_OK" ]; then
-		echo "No libvpx1. Installing libvpx1."
-		jessie_sources=/etc/apt/sources.list.d/jessie.list
-		echo "deb http://httpredir.debian.org/debian jessie main contrib non-free" > "$jessie_sources"
-
-		apt update
-		apt install -y -t jessie libvpx1 \
-			--no-install-recommends
-
-		# cleanup the file that we used to install things from jessie
-		rm "$jessie_sources"
-	fi
-
-	echo "deb http://download.virtualbox.org/virtualbox/debian vivid contrib" >> /etc/apt/sources.list.d/virtualbox.list
-
-	curl -sSL https://www.virtualbox.org/download/oracle_vbox.asc | apt-key add -
-
-	apt update
-	apt install -y \
-		virtualbox-5.0 \
-	--no-install-recommends
-}
-
-install_vagrant() {
-	VAGRANT_VERSION=1.8.1
-
-	# if we are passing the version
-	if [[ ! -z "$1" ]]; then
-		export VAGRANT_VERSION=$1
-	fi
-
-	# check if we need to install virtualbox
-	PKG_OK=$(dpkg-query -W --showformat='${Status}\n' virtualbox | grep "install ok installed")
-	echo "Checking for virtualbox: $PKG_OK"
-	if [ "" == "$PKG_OK" ]; then
-		echo "No virtualbox. Installing virtualbox."
-		install_virtualbox
-	fi
-
-	tmpdir=$(mktemp -d)
-	(
-	cd "$tmpdir"
-	curl -sSL -o vagrant.deb "https://releases.hashicorp.com/vagrant/${VAGRANT_VERSION}/vagrant_${VAGRANT_VERSION}_x86_64.deb"
-	dpkg -i vagrant.deb
-	)
-
-	rm -rf "$tmpdir"
-
-	# install plugins
-	vagrant plugin install vagrant-vbguest
-}
-
-
 usage() {
 	echo -e "install.sh\\n\\tThis script installs my basic setup for a debian laptop\\n"
 	echo "Usage:"
 	echo "  base                                - setup sources & install base pkgs"
 	echo "  basemin                             - setup sources & install base min pkgs"
 	echo "  wifi {broadcom, intel}              - install wifi drivers"
-	echo "  graphics {intel, geforce, optimus}  - install graphics drivers"
 	echo "  wm                                  - install window manager/desktop pkgs"
 	echo "  dotfiles                            - get dotfiles"
 	echo "  vim                                 - install vim specific dotfiles"
 	echo "  golang                              - install golang and packages"
 	echo "  scripts                             - install scripts"
 	echo "  syncthing                           - install syncthing"
-	echo "  vagrant                             - install vagrant and virtualbox"
 }
 
 main() {
@@ -698,10 +560,6 @@ main() {
 		base_min
 	elif [[ $cmd == "wifi" ]]; then
 		install_wifi "$2"
-	elif [[ $cmd == "graphics" ]]; then
-		check_is_sudo
-
-		install_graphics "$2"
 	elif [[ $cmd == "wm" ]]; then
 		check_is_sudo
 
@@ -718,8 +576,6 @@ main() {
 	elif [[ $cmd == "syncthing" ]]; then
 		get_user
 		install_syncthing
-	elif [[ $cmd == "vagrant" ]]; then
-		install_vagrant "$2"
 	else
 		usage
 	fi
