@@ -1,0 +1,9 @@
+[Unit]
+Description=Hibernate image size
+
+[Service]
+ExecStart=/bin/sh -c "echo 4294967296 > /sys/power/image_size"
+Type=oneshot
+
+[Install]
+WantedBy=multi-user.target

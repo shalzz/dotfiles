@@ -1,0 +1,11 @@
+[Unit]
+Description=Disable Wake-on-LAN for %i
+After=suspend.target
+
+[Service]
+ExecStart=/usr/bin/ethtool -s %i wol d
+Type=simple
+
+[Install]
+WantedBy=multi-user.target
+WantedBy=suspend.target
