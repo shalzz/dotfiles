@@ -1,5 +1,5 @@
 .PHONY: all
-all: bin dotfiles ## Installs the bin and etc directory files and the dotfiles.
+all: bin dotfiles etc ## Installs the bin and etc directory files and the dotfiles.
 
 .PHONY: bin
 bin: ## Installs the bin directory files.
@@ -19,7 +19,7 @@ dotfiles: ## Installs the dotfiles.
 	gpg --list-keys || true;
 	ln -sfn $(CURDIR)/.gnupg/gpg.conf $(HOME)/.gnupg/gpg.conf;
 	ln -sfn $(CURDIR)/.gnupg/gpg-agent.conf $(HOME)/.gnupg/gpg-agent.conf;
-	ln -fn $(CURDIR)/gitignore $(HOME)/.gitignore;
+	ln -sfn $(CURDIR)/gitignore $(HOME)/.gitignore;
 	cp -f $(CURDIR)/gitconfig $(HOME)/.gitconfig;
 
 .PHONY: etc
@@ -27,7 +27,7 @@ etc: ## Installs the etc directory files.
 	sudo mkdir -p /etc/docker/seccomp
 	for file in $(shell find $(CURDIR)/etc -type f -not -name ".*.swp"); do \
 		f=$$(echo $$file | sed -e 's|$(CURDIR)||'); \
-		sudo ln -f $$file $$f; \
+		sudo cp -f $$file $$f; \
 	done
 	systemctl --user daemon-reload || true
 	sudo systemctl daemon-reload
