@@ -18,7 +18,7 @@ if [ -f "${HOME}/google-cloud-sdk/path.bash.inc" ]; then source "${HOME}/google-
 if [ -f "${HOME}/google-cloud-sdk/completion.bash.inc" ]; then source "${HOME}/google-cloud-sdk/completion.bash.inc"; fi
 
 ## Install NPM global packages in HOME dir
-export PATH="$PATH:${HOME}/.npm-global/bin"
+export PATH="${HOME}/.npm-global/bin:$PATH"
 export npm_config_prefix="${HOME}/.npm-global"
 
 ## Ruby
