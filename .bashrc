@@ -96,15 +96,23 @@ for file in /etc/bash_completion.d/* ; do
 	source "$file"
 done
 
+# clang bash completion
+if [[ -f /usr/share/clang/bash-autocomplete.sh ]]; then
+    # shellcheck source=/dev/null
+    . /usr/share/clang/bash-autocomplete.sh
+fi
+
 if [[ -f "${HOME}/.bash_profile" ]]; then
 	# shellcheck source=/dev/null
 	source "${HOME}/.bash_profile"
 fi
 
 # Command-not-found
+# shellcheck source=/dev/null
 source /usr/share/doc/pkgfile/command-not-found.bash
 
 # Preserve current directory in new terminal tabs
+# shellcheck source=/dev/null
 source /etc/profile.d/vte.sh
 
 # use a tty for gpg
