@@ -226,3 +226,13 @@ pandoc(){
 		--name pandoc \
 		${DOCKER_REPO_PREFIX}/pandoc "${args}" "${rfile}"
 }
+yubico_piv_tool(){
+	del_stopped yubico-piv-tool
+
+	docker run --rm -it \
+		-v /etc/localtime:/etc/localtime:ro \
+		--device /dev/usb \
+		--device /dev/bus/usb \
+		--name yubico-piv-tool \
+		${DOCKER_REPO_PREFIX}/yubico-piv-tool bash
+}
