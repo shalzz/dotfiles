@@ -562,7 +562,7 @@ install_vim() {
 	cd "$HOME"
 
 	# install .vim files
-	git clone git@github.com:shalzz/.vim.git "${HOME}/.vim"
+	git clone https://github.com/shalzz/.vim.git "${HOME}/.vim"
 	sudo ln -snf "${HOME}/.vim" /root/.vim
 
 	# alias vim dotfiles to neovim
