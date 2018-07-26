@@ -592,6 +592,9 @@ install_vim() {
 		setuptools \
 		wheel \
 		neovim
+
+        # install vim plugins
+        nvim +PlugInstall +q +q +q
 	)
 }
 
