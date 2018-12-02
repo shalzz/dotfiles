@@ -185,3 +185,5 @@
 	gpgsign = true
 [credential]
 	helper = /usr/lib/git-core/git-credential-libsecret
+[protocol]
+	version = 2
