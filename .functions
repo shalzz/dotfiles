@@ -467,3 +467,9 @@ restart_gpgagent(){
 	gpg-connect-agent /bye >/dev/null 2>&1
 	gpg-connect-agent updatestartuptty /bye >/dev/null 2>&1
 }
+
+# past to the paste.rs service
+pasteurl() {
+    local file=${1:-/dev/stdin}
+    curl --data-binary @${file} https://paste.rs
+}
