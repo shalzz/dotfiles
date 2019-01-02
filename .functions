@@ -469,20 +469,14 @@ restart_gpgagent(){
 }
 
 # paste to the paste.rs service
-pasters() {
-    # get the file name or stdin
-    local cmd file=${1:--}
-
-    # get the command used with it's args
-    read -r _ cmd < <(history 1)
+pasters_helper () {
+    local cmd
+    local -a lines
+    read -r _ _ cmd < <(history 1)
+    mapfile lines < <(LC_ALL=en_US.UTF-8 eval "$cmd" 2>&1)
+    printf %s "${lines[@]}"
     {
-        # check if we are using pipes to redirect the output
-        if [[ $cmd =~ ^(.*)' '*'|'' '*${FUNCNAME[0]} ]]; then
-            # print the command matched by the first pattern
-            printf '$ %s\n' "${BASH_REMATCH[1]}"
-        else
-            printf '$ cat %s\n' "${file}"
-        fi
-        cat "$file"
-    } | curl --data-binary @- https://paste.rs/
-}
+        printf '$ %s\n' "$cmd"
+        printf %s "${lines[@]}"
+    } | curl --data-binary @- https://paste.rs | xsel -b
+}; alias pasters='pasters_helper # '
