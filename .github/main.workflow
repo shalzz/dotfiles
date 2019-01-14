@@ -1,6 +1,6 @@
 workflow "Tests" {
   on = "push"
-  resolves = ["GitHub Action for Docker"]
+  resolves = ["Shellcheck"]
 }
 
 action "Shellcheck" {
