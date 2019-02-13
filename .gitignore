@@ -29,6 +29,6 @@ Session.vim
 .irssi/startup
 .rainbow_oauth
 .nginx/conf.d/*
-!.tmux/plugins/tpm
+!.tmux/plugins/tpm/*
 .tmux/plugins
 .tmux/resurrect
