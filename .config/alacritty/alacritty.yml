@@ -114,7 +114,7 @@ font:
     #style: Italic
 
   # Point size
-  size: 11.0
+  size: 10.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -180,38 +180,38 @@ colors:
   # Normal colors
   normal:
     black:   '0x000000'
-    red:     '0xd54e53'
-    green:   '0xb9ca4a'
-    yellow:  '0xe6c547'
-    blue:    '0x7aa6da'
-    magenta: '0xc397d8'
-    cyan:    '0x70c0ba'
-    white:   '0xeaeaea'
+    red:     '0xCC0000'
+    green:   '0x4E9A06'
+    yellow:  '0xC4A000'
+    blue:    '0x3465A4'
+    magenta: '0x75507B'
+    cyan:    '0x06989A'
+    white:   '0xD3D7CF'
 
   # Bright colors
   bright:
-    black:   '0x666666'
-    red:     '0xff3334'
-    green:   '0x9ec400'
-    yellow:  '0xe7c547'
-    blue:    '0x7aa6da'
-    magenta: '0xb77ee0'
-    cyan:    '0x54ced6'
-    white:   '0xffffff'
+    black:   '0x555753'
+    red:     '0xEF2929'
+    green:   '0x8AE234'
+    yellow:  '0xFCE94F'
+    blue:    '0x729FCF'
+    magenta: '0xAD7FA8'
+    cyan:    '0x34E2E2'
+    white:   '0xEEEEEC'
 
   # Dim colors
   #
   # If the dim colors are not set, they will be calculated automatically based
   # on the `normal` colors.
-  dim:
-    black:   '0x333333'
-    red:     '0xf2777a'
-    green:   '0x99cc99'
-    yellow:  '0xffcc66'
-    blue:    '0x6699cc'
-    magenta: '0xcc99cc'
-    cyan:    '0x66cccc'
-    white:   '0xdddddd'
+  # dim:
+  #   black:   '0x333333'
+  #   red:     '0xf2777a'
+  #   green:   '0x99cc99'
+  #   yellow:  '0xffcc66'
+  #   blue:    '0x6699cc'
+  #   magenta: '0xcc99cc'
+  #   cyan:    '0x66cccc'
+  #   white:   '0xdddddd'
 
   # Indexed Colors
   #
