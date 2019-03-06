@@ -18,8 +18,8 @@ window:
   # Specified in number of columns/lines, not pixels.
   # If both are `0`, this setting is ignored.
   dimensions:
-    columns: 230
-    lines: 70
+    columns: 80
+    lines: 24
 
   # Window padding (changes require restart)
   #
@@ -303,7 +303,7 @@ mouse:
     #
     # These are the modifiers that need to be held down for opening URLs when clicking
     # on them. The available modifiers are documented in the key binding section.
-    modifiers: None
+    modifiers: Control
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
