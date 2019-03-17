@@ -158,8 +158,17 @@ draw_bold_text_with_bright_colors: true
 colors:
   # Default colors
   primary:
-    background: '0x272822'
-    foreground: '0xeaeaea'
+    # Monokai background
+    # background: '0x272822'
+    # Solarized light background
+    background: '0xFDF6E3'
+    # Solarized dark background
+    # background: '0x002B36'
+
+    # Light foreground
+    # foreground: '0xeaeaea'
+    # Dark foreground
+    foreground: '0x657B83'
 
     # Bright and dim foreground colors
     #
