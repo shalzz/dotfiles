@@ -53,7 +53,7 @@ setup_sources_min() {
 	EOF
 
 	# add the neovim ppa gpg key
-	apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 9DBB0BE9366964F134855E2255F96FCF8231B6DD
+	apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 9DBB0BE9366964F134855E2255F96FCF8231B6DD
 
 	# turn off translations, speed up apt update
 	mkdir -p /etc/apt/apt.conf.d
