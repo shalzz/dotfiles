@@ -590,6 +590,23 @@ install_vim() {
 	)
 }
 
+install_latest_mosh() {
+	# create subshell
+	(
+            cd /tmp
+            git clone https://github.com/mobile-shell/mosh
+            cd mosh
+            ./autogen.sh
+            sudo apt install build-essential \
+                protobuf-compiler libprotobuf-dev \
+                zlib1g-dev libncurses5-dev libssl-dev \
+                pkg-config perl libutempter-dev
+            ./configure
+            make
+            sudo make install
+        )
+}
+
 install_virtualbox() {
 	# check if we need to install libvpx1
 	PKG_OK=$(dpkg-query -W --showformat='${Status}\n' libvpx1 | grep "install ok installed")
@@ -657,6 +674,7 @@ usage() {
 	echo "  wm                                  - install window manager/desktop pkgs"
 	echo "  dotfiles                            - get dotfiles"
 	echo "  vim                                 - install vim specific dotfiles"
+	echo "  mosh                                - install mosh from git"
 	echo "  golang                              - install golang and packages"
 	echo "  scripts                             - install scripts"
 	echo "  syncthing                           - install syncthing"
@@ -702,6 +720,8 @@ main() {
 		get_dotfiles
 	elif [[ $cmd == "vim" ]]; then
 		install_vim
+	elif [[ $cmd == "mosh" ]]; then
+		install_latest_mosh
 	elif [[ $cmd == "golang" ]]; then
 		install_golang "$2"
 	elif [[ $cmd == "scripts" ]]; then
