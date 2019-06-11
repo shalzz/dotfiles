@@ -605,14 +605,14 @@ install_latest_mosh() {
             cd /tmp
             git clone https://github.com/mobile-shell/mosh
             cd mosh
-            ./autogen.sh
-            sudo apt install build-essential \
+            apt install build-essential \
                 protobuf-compiler libprotobuf-dev \
                 zlib1g-dev libncurses5-dev libssl-dev \
-                pkg-config perl libutempter-dev
+                pkg-config perl libutempter-dev automake
+            ./autogen.sh
             ./configure
             make
-            sudo make install
+            make install
         )
 }
 
@@ -730,6 +730,9 @@ main() {
 	elif [[ $cmd == "vim" ]]; then
 		install_vim
 	elif [[ $cmd == "mosh" ]]; then
+		check_is_sudo
+		get_user
+
 		install_latest_mosh
 	elif [[ $cmd == "golang" ]]; then
 		install_golang "$2"
