@@ -23,3 +23,6 @@ export npm_config_prefix="${HOME}/.npm-global"
 
 ## Ccache
 export PATH="/usr/lib/ccache/bin/:$PATH"
+
+## Rust Cargo
+export PATH="${HOME}/.cargo/bin/:$PATH"
