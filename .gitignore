@@ -17,8 +17,9 @@ Session.vim
 
 .extra
 .gitconfig
-.gnupg
 !.gnupg/gpg*.conf
+!.gnupg/dirmngr.conf
+.gnupg
 .i3/logfile
 .irssi/away.log
 .irssi/config*
