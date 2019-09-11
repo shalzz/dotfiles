@@ -1,0 +1,12 @@
+on: push
+name: Tests
+jobs:
+  shellcheck:
+    name: Shellcheck
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Shellcheck
+      uses: docker://jess/shellcheck:latest
+      with:
+        args: ./test.sh
