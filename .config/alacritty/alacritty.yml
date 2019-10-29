@@ -86,7 +86,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux) monospace
     #   - (Windows) Consolas
-    family: FiraCode
+    family: Fira Code
 
     # The `style` can be specified to pick a specific face.
     style: Retina
@@ -97,7 +97,7 @@ font:
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: FiraCode
+    family: Fira Code
 
     # The `style` can be specified to pick a specific face.
     style: Bold
@@ -108,7 +108,7 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: FiraCode
+    family: Fira Code
 
     # The `style` can be specified to pick a specific face.
     #style: Italic
@@ -464,6 +464,8 @@ key_bindings:
   - { key: V,        mods: Control|Shift, chars:  "\x16"                 }
   - { key: C,        mods: Control, action: Copy                         }
   - { key: V,        mods: Control, action: Paste                        }
+    #- { key: Paste,                   action: Paste                            }
+    #- { key: Copy,                    action: Copy                             }
 
   # (macOS only)
   #- { key: Key0,   mods: Command, action: ResetFontSize    }
@@ -477,10 +479,8 @@ key_bindings:
   #- { key: Q,      mods: Command, action: Quit             }
   #- { key: W,      mods: Command, action: Quit             }
 
-  - { key: Paste,                   action: Paste                            }
-  - { key: Copy,                    action: Copy                             }
   - { key: L,        mods: Control, action: ClearLogNotice                   }
-  - { key: L,        mods: Control, chars: "\x0c"                            }
+    #- { key: L,        mods: Control, chars: "\x0c"                            }
   - { key: Home,                    chars: "\x1bOH",        mode: AppCursor  }
   - { key: Home,                    chars: "\x1b[H",        mode: ~AppCursor }
   - { key: End,                     chars: "\x1bOF",        mode: AppCursor  }
