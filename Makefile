@@ -21,6 +21,7 @@ dotfiles: ## Installs the dotfiles.
 	ln -sfn $(CURDIR)/.gnupg/gpg-agent.conf $(HOME)/.gnupg/gpg-agent.conf;
 	ln -fn $(CURDIR)/gitignore $(HOME)/.gitignore;
 	cp -f $(CURDIR)/gitconfig $(HOME)/.gitconfig;
+	ln -snf $(CURDIR)/.i3 $(HOME)/.config/sway;
 
 .PHONY: etc
 etc: ## Installs the etc directory files.
