@@ -238,7 +238,13 @@ o() {
 # `less` with options to preserve color and line numbers, unless the output is
 # small enough for one screen.
 tre() {
-	tree -aC -I '.git' --dirsfirst "$@" | less -FRNX
+    local ignored=$(git ls-files -ci --others --directory --exclude-standard)
+    local ignored_filter=$(echo "$ignored" \
+                    | egrep -v "^#.*$|^[[:space:]]*$" \
+                    | sed 's~^/~~' \
+                    | sed 's~/$~~' \
+                    | tr "\\n" "|")
+    tree -aC --prune -I ".git|${ignored_filter: : -1}" --dirsfirst "$@" | less -FRNX
 }
 
 # Call from a local repo to open the repository on github/bitbucket in browser
