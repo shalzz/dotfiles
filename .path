@@ -26,3 +26,7 @@ export PATH="/usr/lib/ccache/bin/:$PATH"
 
 ## Rust Cargo
 export PATH="${HOME}/.cargo/bin/:$PATH"
+
+## sccache
+export RUSTC_WRAPPER="${HOME}/.cargo/bin/sccache"
+export SCCACHE_CACHE_SIZE="5G"
