@@ -1,6 +1,6 @@
 ## dotfiles
 
-[![Travis CI](https://travis-ci.org/Shalzz/dotfiles.svg?branch=master)](https://travis-ci.org/Shalzz/dotfiles)
+[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fshalzz%2Fdotfiles%2Fbadge&style=flat)](https://actions-badge.atrox.dev/shalzz/dotfiles/goto)
 
 **To install:**
 
