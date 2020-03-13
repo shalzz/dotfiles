@@ -177,16 +177,16 @@ colors:
     # Monokai background
     # background: '0x272822'
     # Solarized light background
-    # background: '0xFDF6E3'
+    background: '0xFDF6E3'
     # Solarized dark background
-    background: '0x002B36'
+    # background: '0x002B36'
 
     # Lighter foreground
     # foreground: '0xeaeaea'
     # Dark foreground
-    # foreground: '0x657B83'
+    foreground: '0x657B83'
     # Light foreground
-    foreground: '0x8AA8B3'
+    # foreground: '0x8AA8B3'
 
     # Bright and dim foreground colors
     #
