@@ -30,10 +30,13 @@ export QT_DEVICE_PIXEL_RATIO=2
 
 ## For wayland
 export MOZ_ENABLE_WAYLAND=1
-export GDK_BACKEND=wayland
-export QT_QPA_PLATFORM=wayland-egl
-export QT_WAYLAND_FORCE_DPI=physical
-export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+#export GDK_BACKEND=wayland
+#export QT_QPA_PLATFORM=wayland
+#export QT_WAYLAND_FORCE_DPI=physical
+#export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+
+## VAAPI
+# export LIBVA_DRIVER_NAME=iHD
 
 # Android
 export ANDROID_EMULATOR_USE_SYSTEM_LIBS=1
