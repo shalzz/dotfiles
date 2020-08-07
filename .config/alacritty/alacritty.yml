@@ -44,7 +44,7 @@ window:
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background, but no title bar buttons
-  decorations: full
+  decorations: none
 
   # Startup Mode (changes require restart)
   #
@@ -262,7 +262,7 @@ bell:
 
   # Duration of the visual bell flash. A `duration` of `0` will disable the
   # visual bell animation.
-  duration: 5
+  duration: 3
 
   # Visual bell animation color.
   color: '#ffffff'
