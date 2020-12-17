@@ -1,0 +1,9 @@
+[Touchpad pressure override]
+MatchUdevType=touchpad
+MatchName=*ETPS/2 Elantech Touchpad
+MatchDMIModalias=dmi:*svnLENOVO:*:pvrThinkPadE14Gen2*
+AttrPressureRange=12:10
+AttrThumbPressureThreshold=150
+AttrPalmPressureThreshold=230
+AttrResolutionHint=31x30
+#ModelBouncingKeys=0
