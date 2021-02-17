@@ -488,13 +488,3 @@ pasters_helper () {
         printf %s "${lines[@]}"
     } | curl --data-binary @- https://paste.rs | xsel -b
 }; alias pasters='pasters_helper # '
-
-secret () {
-        output=$(pwd)/"${1}".$(date +%s).enc
-        gpg --encrypt --armor --output "${output}" -r "$GPGKEY" -r "$OLDKEY" "${1}" && echo "${1} -> ${output}"
-}
-
-reveal () {
-        output=$(echo "${1}" | rev | cut -c16- | rev)
-        gpg --decrypt --output "${output}" "${1}" && echo "${1} -> ${output}"
-}
