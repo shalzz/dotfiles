@@ -123,10 +123,12 @@ source /etc/profile.d/vte.sh
 
 # use a tty for gpg
 # solves error: "gpg: signing failed: Inappropriate ioctl for device"
-export GPG_TTY="$(tty)"
+GPG_TTY="$(tty)"
+export GPG_TTY
 # Set SSH to use gpg-agent
 unset SSH_AGENT_PID
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+export SSH_AUTH_SOCK
 
 # gpgconf --launch gpg-agent
 # add alias for ssh to update the tty
@@ -169,7 +171,3 @@ if hash kubectl 2>/dev/null; then
 	# shellcheck source=/dev/null
 	source <(kubectl completion bash)
 fi
-
-# tabtab source for packages
-# uninstall by removing these lines
-[ -f ~/.config/tabtab/bash/__tabtab.bash ] && . ~/.config/tabtab/bash/__tabtab.bash || true
