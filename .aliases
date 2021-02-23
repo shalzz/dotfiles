@@ -145,3 +145,6 @@ alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
 # Satisfy docker
 alias docker="sudo /usr/bin/docker"
+
+# Enable color for less
+alias less="less -R"

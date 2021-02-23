@@ -116,22 +116,19 @@ source /usr/share/doc/pkgfile/command-not-found.bash
 source /etc/profile.d/vte.sh
 
 # Start the gpg-agent if not already running
-if ! pgrep -x -u "${USER}" gpg-agent >/dev/null 2>&1; then
-	gpg-connect-agent /bye >/dev/null 2>&1
-	gpg-connect-agent updatestartuptty /bye >/dev/null
-fi
+#if ! pgrep -x -u "${USER}" gpg-agent >/dev/null 2>&1; then
+#	gpg-connect-agent /bye >/dev/null 2>&1
+#	gpg-connect-agent updatestartuptty /bye >/dev/null
+#fi
+
 # use a tty for gpg
 # solves error: "gpg: signing failed: Inappropriate ioctl for device"
-GPG_TTY=$(tty)
-export GPG_TTY
+export GPG_TTY="$(tty)"
 # Set SSH to use gpg-agent
-#unset SSH_AGENT_PID
-#if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
-#	if [[ -z "$SSH_AUTH_SOCK" ]] || [[ "$SSH_AUTH_SOCK" == *"apple.launchd"* ]]; then
-#		SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
-#		export SSH_AUTH_SOCK
-#	fi
-#fi
+unset SSH_AGENT_PID
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+
+# gpgconf --launch gpg-agent
 # add alias for ssh to update the tty
 alias ssh="gpg-connect-agent updatestartuptty /bye >/dev/null; ssh"
 
@@ -172,3 +169,7 @@ if hash kubectl 2>/dev/null; then
 	# shellcheck source=/dev/null
 	source <(kubectl completion bash)
 fi
+
+# tabtab source for packages
+# uninstall by removing these lines
+[ -f ~/.config/tabtab/bash/__tabtab.bash ] && . ~/.config/tabtab/bash/__tabtab.bash || true
