@@ -21,11 +21,8 @@
 	# Checkout a pull request from origin (of a github repository)
 	pr = !"pr() { git fetch origin pull/$1/head:pr-$1; git checkout pr-$1; }; pr"
 
-	# Clone a repository including all submodules
-	c = clone --recursive
-
 	# Commit all changes
-	ca = !git add -A && git commit -av
+	ca = !". ~/builds/dotfiles/bin/gitdate && git add -A && git commit -av"
 
 	# Switch to a branch, creating it if necessary
 	go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
@@ -113,7 +110,7 @@
 	# Make `git rebase` safer on OS X
 	# More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
 	trustctime = false
-	editor = vim
+	editor = nvim
 
 [color]
 
@@ -128,55 +125,48 @@
 	remote = green
 
 [color "diff"]
-
 	meta = blue bold
 	frag = magenta bold # line info
 	old = red # deletions
 	new = green # additions
 
 [color "status"]
-
         added = cyan
 	changed = green
 	untracked = red
 
 [diff]
-
 	# Detect copies as well as renames
 	renames = copies
+	tool = meld
 
 [help]
-
 	# Automatically correct and execute mistyped commands
 	autocorrect = 1
 
 [merge]
-
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
+	tool = meld
 
 [push]
 	# change to maching for machines with older versions of git 1.x.x
 	default = simple
 
 [url "git@github.com:"]
-
 	pushInsteadOf = https://github.com/
 	pushInsteadOf = "github:"
 	pushInsteadOf = "git://github.com/"
 
 [url "git://github.com/"]
-
 	insteadOf = "github:"
 
 [url "git@gist.github.com:"]
-
 	insteadOf = "gst:"
 	pushInsteadOf = "gist:"
 	pushInsteadOf = "git://gist.github.com/"
 
 [url "git://gist.github.com/"]
-
 	insteadOf = "gist:"
 
 # Uncomment if you want fetch to also get all github pull requests, this is rather
@@ -184,7 +174,7 @@
 #[remote "origin"]
 	#fetch = +refs/pull/*/head:refs/remotes/origin/pull/*
 
-#[commit]
+[commit]
 #	gpgsign = true
 [credential]
 	helper = /usr/lib/git-core/git-credential-libsecret
@@ -192,3 +182,8 @@
 	version = 2
 [pull]
 	rebase = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
