@@ -49,3 +49,5 @@ fi
 
 export AWS_DEFAULT_PROFILE=default
 export CARGO_TARGET_DIR=~/.cargo-target
+
+export CLOUDSDK_PYTHON=$(which python3)

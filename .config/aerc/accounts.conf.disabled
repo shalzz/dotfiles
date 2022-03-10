@@ -1,0 +1,27 @@
+[stu.upes.ac.in]
+default  = INBOX
+from     = Shaleen Jain <shaleen_jain@stu.upes.ac.in>
+outgoing = smtps+plain://shaleen_jain%40stu.upes.ac.in@smtp.gmail.com:465
+source   = imaps://shaleen_jain%40stu.upes.ac.in@imap.gmail.com:993
+
+source-cred-cmd   = secret-tool lookup goa-identity imap_smtp:gen0:account_1502371622_2 | sed -r "s/(<'|'>)|[<>']/\"/g"  | jq -r .\"imap-password\"
+outgoing-cred-cmd = secret-tool lookup goa-identity imap_smtp:gen0:account_1502371622_2 | sed -r "s/(<'|'>)|[<>']/\"/g"  | jq -r .\"smtp-password\"
+
+archive  = [Gmail]/All Mail
+copy-to  = [Gmail]/Sent Mail
+postpone = [Gmail]/Drafts
+folders  = INBOX,[Gmail]/All Mail,[Gmail]/Sent Mail
+folders-sort   = INBOX
+signature-file = ~/.config/aerc/regards.txt
+
+[outlook.com]
+default  = INBOX
+from     = Shaleen Jain <shalzz@outlook.com>
+outgoing = smtp+plain://shalzz%40outlook.com@smtp.office365.com:587
+source   = imaps://shalzz%40outlook.com@outlook.office365.com:993
+smtp-starttls = yes
+
+source-cred-cmd   = secret-tool lookup goa-identity imap_smtp:gen0:account_1502973754_0 | sed -r "s/(<'|'>)|[<>']/\"/g"  | jq -r .\"imap-password\"
+outgoing-cred-cmd = secret-tool lookup goa-identity imap_smtp:gen0:account_1502973754_0 | sed -r "s/(<'|'>)|[<>']/\"/g"  | jq -r .\"smtp-password\"
+
+# signature-file = ~/.config/aerc/regards.txt
