@@ -1,0 +1,70 @@
+[general]
+status_path = "~/.vdirsyncer/status/"
+
+[storage contacts_homecloud]
+type = "carddav"
+url = "http://home-cloud:5000/carddav/shalzz"
+username = "shalzz"
+password.fetch = ["command", "pass", "local/shalzz@homecloud"]
+
+[storage calendar_homecloud]
+type = "caldav"
+url = "http://home-cloud:5000/caldav.php/shalzz"
+username = "shalzz"
+password.fetch = ["command", "pass", "local/shalzz@homecloud"]
+
+[storage calendar_homecloud_direct]
+type = "caldav"
+url = "http://home-cloud:5000/caldav.php/shalzz/home"
+username = "shalzz"
+password.fetch = ["command", "pass", "local/shalzz@homecloud"]
+
+[storage contacts_purelymail]
+type = "carddav"
+url = "https://purelymail.com/webdav/3313/carddav/"
+username = "shaleen@jain.sh"
+password.fetch = ["command", "pass", "local/shaleen@jain.sh"]
+
+[storage calendar_purelymail]
+type = "caldav"
+url = "https://purelymail.com/webdav/3313/caldav"
+username = "shaleen@jain.sh"
+password.fetch = ["command", "pass", "local/shaleen@jain.sh"]
+
+[storage calendar_google]
+type = "google_calendar"
+token_file = "~/.vdirsyncer/gtoken"
+client_id = "44438659992-7kgjeitenc16ssihbtdjbgguch7ju55s.apps.googleusercontent.com"
+client_secret = "-gMLuQyDiI0XrQS_vx_mhuYF"
+start_date = "datetime.now() - timedelta(days=365)"
+end_date = "datetime.now() + timedelta(days=365)"
+item_types = ["VEVENT", "VJOURNAL"]
+
+[storage calendar_holidays_india]
+type = "http"
+url = "https://calendar.google.com/calendar/ical/en.indian%23holiday%40group.v.calendar.google.com/public/basic.ics"
+
+[pair contacts_purelymail_homecloud]
+a = "contacts_purelymail"
+b = "contacts_homecloud"
+collections = [["default", "default", "ab311bce-d001-4219-bd0e-65b264e157ca"]]
+metadata = ["displayname"]
+conflict_resolution = "a wins"
+
+[pair calendar_purelymail_homecloud]
+a = "calendar_purelymail"
+b = "calendar_homecloud"
+collections = [["default", "default", "home"]]
+metadata = ["displayname", "color"]
+
+[pair calendar_homecloud_google]
+a = "calendar_homecloud"
+b = "calendar_google"
+collections = [["default", "home", "shaleen.jain95@gmail.com"]]
+metadata = ["displayname", "color"]
+
+[pair calendar_homecloud_holidays]
+a = "calendar_homecloud_direct"
+b = "calendar_holidays_india"
+collections = null
+partial_sync = "ignore"
