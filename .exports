@@ -25,6 +25,7 @@ export TODOTXT_DEFAULT_ACTION=ls
 
 ## For wayland
 export MOZ_ENABLE_WAYLAND=1
+#export MOZ_DISABLE_RDD_SANDBOX=1
 #export GDK_BACKEND=wayland
 #export QT_QPA_PLATFORM=wayland
 #export QT_WAYLAND_FORCE_DPI=physical
@@ -51,3 +52,4 @@ export AWS_DEFAULT_PROFILE=default
 export CARGO_TARGET_DIR=~/.cargo-target
 
 export CLOUDSDK_PYTHON=$(which python3)
+export MATES_DIR=~/.contacts/default
