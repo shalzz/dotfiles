@@ -39,6 +39,7 @@ client_secret = "-gMLuQyDiI0XrQS_vx_mhuYF"
 start_date = "datetime.now() - timedelta(days=365)"
 end_date = "datetime.now() + timedelta(days=365)"
 item_types = ["VEVENT", "VJOURNAL"]
+read_only = true
 
 [storage calendar_holidays_india]
 type = "http"
@@ -55,13 +56,13 @@ conflict_resolution = "a wins"
 a = "calendar_purelymail"
 b = "calendar_homecloud"
 collections = [["default", "default", "home"]]
-metadata = ["displayname", "color"]
+metadata = ["color"]
 
 [pair calendar_homecloud_google]
 a = "calendar_homecloud"
 b = "calendar_google"
 collections = [["default", "home", "shaleen.jain95@gmail.com"]]
-metadata = ["displayname", "color"]
+metadata = ["color"]
 
 [pair calendar_homecloud_holidays]
 a = "calendar_homecloud_direct"
