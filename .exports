@@ -53,3 +53,4 @@ export CARGO_TARGET_DIR=~/.cargo-target
 
 export CLOUDSDK_PYTHON=$(which python3)
 export MATES_DIR=~/.contacts/default
+export ZK_NOTEBOOK_DIR=~/notes
