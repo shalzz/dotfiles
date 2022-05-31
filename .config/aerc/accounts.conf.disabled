@@ -25,3 +25,18 @@ source-cred-cmd   = secret-tool lookup goa-identity imap_smtp:gen0:account_15029
 outgoing-cred-cmd = secret-tool lookup goa-identity imap_smtp:gen0:account_1502973754_0 | sed -r "s/(<'|'>)|[<>']/\"/g"  | jq -r .\"smtp-password\"
 
 # signature-file = ~/.config/aerc/regards.txt
+
+[kleros.awsapp.com]
+default  = INBOX
+from     = Shaleen Jain <shaleen@kleros.io>
+outgoing = smtps+plain://shaleen%40kleros.io@smtp.mail.us-east-1.awsapps.com:465
+source   = imaps://shaleen%40kleros.io@imap.mail.us-east-1.awsapps.com:993
+
+source-cred-cmd   = pass show local/kleros.awsapps.com
+outgoing-cred-cmd = pass show local/kleros.awsapps.com
+
+archive  = Archive
+copy-to  = Sent Items
+postpone = Drafts
+folders-sort   = INBOX
+signature-file = ~/.config/aerc/regards.txt

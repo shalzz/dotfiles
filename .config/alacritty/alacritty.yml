@@ -579,7 +579,6 @@ key_bindings:
   - {key: Key0, mods: Control, action: ResetFontSize}
   - {key: Equals, mods: Control, action: IncreaseFontSize}
   - {key: Minus, mods: Control, action: DecreaseFontSize}
-
 # Vi Mode
 #- { key: Space,  mods: Shift|Control, mode: Vi, action: ScrollToBottom          }
 #- { key: Space,  mods: Shift|Control,           action: ToggleViMode            }
