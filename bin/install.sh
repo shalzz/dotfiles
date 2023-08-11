@@ -47,10 +47,7 @@ setup_sources_min() {
 		--no-install-recommends
 
 	# neovim
-	cat <<-EOF > /etc/apt/sources.list.d/neovim.list
-	deb http://ppa.launchpad.net/neovim-ppa/unstable/ubuntu xenial main
-	deb-src http://ppa.launchpad.net/neovim-ppa/unstable/ubuntu xenial main
-	EOF
+	add-apt-repository ppa:neovim-ppa/stable
 
 	# add the neovim ppa gpg key
 	apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 9DBB0BE9366964F134855E2255F96FCF8231B6DD
