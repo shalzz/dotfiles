@@ -7,5 +7,7 @@
 # the date to UTC in order to obscure timezone-based geodata tracking.
 #
 
-export GIT_AUTHOR_DATE="$(date -u)"
-export GIT_COMMITTER_DATE="$(date -u)"
+GIT_AUTHOR_DATE="$(date -u)"
+export GIT_AUTHOR_DATE=
+GIT_COMMITTER_DATE="$(date -u)"
+export GIT_COMMITTER_DATE=
