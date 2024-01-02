@@ -56,7 +56,7 @@ blinking = "Always"
 shape = "Block"
 
 [env]
-#TERM = "xterm-256color"
+TERM = "xterm-256color"
 
 [font]
 builtin_box_drawing = true
