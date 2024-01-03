@@ -1,7 +1,9 @@
 if [[ "$1" == 0 ]]; then
-    yq e '.colors.primary alias = "light"' -i ~/.config/alacritty/alacritty.yml
+    tomlq -it '.colors.primary.background="#FDF6E3"' .config/alacritty/alacritty.toml
+    tomlq -it '.colors.primary.foreground="#657B83"' .config/alacritty/alacritty.toml
     yq e '.theme alias = "light"' -i  ~/.config/spotify-tui/config.yml
 else
-    yq e '.colors.primary alias = "dark"' -i ~/.config/alacritty/alacritty.yml
+    tomlq -it '.colors.primary.background="#002B36"' .config/alacritty/alacritty.toml
+    tomlq -it '.colors.primary.foreground="#8AA8B3"' .config/alacritty/alacritty.toml
     yq e '.theme alias = "dark"' -i  ~/.config/spotify-tui/config.yml
 fi

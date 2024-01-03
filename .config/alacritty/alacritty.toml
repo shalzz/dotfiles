@@ -34,18 +34,8 @@ white = "#D3D7CF"
 yellow = "#C4A000"
 
 [colors.primary]
-background = "#002B36"
-foreground = "#8AA8B3"
-
-# [colors.light]
-# background = '#FDF6E3'
-# foreground = '#657B83'
-# [colors.dark]
-# background = '#002B36'
-# foreground = '#8AA8B3'
-# [colors.monokai]
-# background = '#272822'
-# foreground = '#eaeaea'
+background = "#FDF6E3"
+foreground = "#657B83"
 
 [cursor]
 blink_interval = 600
@@ -81,7 +71,7 @@ alphabet = "jfkdls;ahgurieowpq"
 command = "xdg-open"
 hyperlinks = true
 post_processing = true
-regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-<>\"\\s{-}\\^⟨⟩`]+"
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001f\u007f-<>\"\\s{-}\\^⟨⟩`]+"
 
 [hints.enabled.binding]
 key = "U"
