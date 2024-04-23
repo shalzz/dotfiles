@@ -49,20 +49,26 @@ FILES=()
 #
 ##   NOTE: If you have /usr on a separate partition, you MUST include the
 #    usr, fsck and shutdown hooks.
-HOOKS=(base systemd modconf block sd-vconsole lvm2 filesystems keyboard fsck)
+HOOKS=(base systemd autodetect microcode modconf kms block keyboard sd-vconsole sd-encrypt filesystems fsck)
 
 # COMPRESSION
-# Use this to compress the initramfs image. By default, gzip compression
+# Use this to compress the initramfs image. By default, zstd compression
 # is used. Use 'cat' to create an uncompressed image.
+COMPRESSION="cat"
+#COMPRESSION="zstd"
 #COMPRESSION="gzip"
 #COMPRESSION="bzip2"
 #COMPRESSION="lzma"
 #COMPRESSION="xz"
 #COMPRESSION="lzop"
 #COMPRESSION="lz4"
-#COMPRESSION="zstd"
-COMPRESSION="cat"
 
 # COMPRESSION_OPTIONS
 # Additional options for the compressor
 #COMPRESSION_OPTIONS=()
+
+# MODULES_DECOMPRESS
+# Decompress kernel modules during initramfs creation.
+# Enable to speedup boot process, disable to save RAM
+# during early userspace. Switch (yes/no).
+MODULES_DECOMPRESS="yes"
