@@ -28,6 +28,10 @@ selector_chooser.bg=#AFD700
 default.selected.bg=#AFD700
 completion_default.selected.bg=#AFD700
 
+*.selected.fg = #4F6100
+msglist_marked.fg=#8AA8B3
+msglist_marked.selected.fg=#8AA8B3
+
 #*.selected.bg = 12
 #*.selected.fg = 15
 #*.selected.bold = true
