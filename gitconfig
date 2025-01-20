@@ -142,7 +142,12 @@
 
 [help]
 	# Automatically correct and execute mistyped commands
-	autocorrect = 1
+	# 0 (default): show the suggested command.
+	# positive number: run the suggested command after specified deciseconds (0.1 sec).
+	# "immediate": run the suggested command immediately.
+	# "prompt": show the suggestion and prompt for confirmation to run the command.
+	# "never": don’t run or show any suggested command.
+	autocorrect = 3
 
 [merge]
 	# Include summaries of merged commits in newly created merge commit messages
