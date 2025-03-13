@@ -33,3 +33,4 @@ Session.vim
 !.tmux/plugins/tpm/*
 .tmux/plugins
 .tmux/resurrect
+.config/aerc/accounts.conf*
